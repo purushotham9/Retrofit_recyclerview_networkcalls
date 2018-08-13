@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">CalenderEvents</string>
+    <string name="retrofit">Retrofit-Recyclerview</string>
+</resources>
