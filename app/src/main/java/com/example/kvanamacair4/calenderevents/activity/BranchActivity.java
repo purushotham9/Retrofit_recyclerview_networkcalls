@@ -6,11 +6,10 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.example.kvanamacair4.calenderevents.R;
 import com.example.kvanamacair4.calenderevents.adapter.RetrofitAdapter;
@@ -32,6 +31,7 @@ public class BranchActivity extends AppCompatActivity implements View.OnClickLis
     private static final String TAG = BranchActivity.class.getSimpleName();
     private List<DataData> eventList = new ArrayList<>();
     private RecyclerView mrecycler_view;
+    private Toolbar mtoolbar;
     RetrofitAdapter retrofitAdapter;
     private Button mbtn_service_testing_purpose, btn;
     String domainName = "School.Database";
@@ -52,6 +52,29 @@ public class BranchActivity extends AppCompatActivity implements View.OnClickLis
         mrecycler_view.setLayoutManager(mlayoutManager);
         mrecycler_view.setItemAnimator(new DefaultItemAnimator());
         mrecycler_view.setAdapter(retrofitAdapter);
+
+        mtoolbar = findViewById(R.id.toolbar);
+        if (mtoolbar != null) {
+            setSupportActionBar(mtoolbar);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+        click();
+
+//        mtoolbar.setNavigationOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                finish();
+//            }
+//        });
+    }
+
+    public void click() {
+        mtoolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     @Override
@@ -77,7 +100,6 @@ public class BranchActivity extends AppCompatActivity implements View.OnClickLis
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
-
                         }
                     }
 
@@ -89,7 +111,7 @@ public class BranchActivity extends AppCompatActivity implements View.OnClickLis
                 retrofitAdapter.notifyDataSetChanged();
                 break;
             case R.id.btn:
-                RetrofitHandler.getInstance().login("", "", "", "" , "").enqueue(new Callback<String>() {
+                RetrofitHandler.getInstance().login("", "", "", "", "").enqueue(new Callback<String>() {
                     @Override
                     public void onResponse(Call<String> call, Response<String> response) {
                         if (response.isSuccessful()) {

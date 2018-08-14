@@ -5,7 +5,12 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <Button
+    <com.example.kvanamacair4.calenderevents.view.HelveticaEditTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/et_testing"/>
+
+    <com.example.kvanamacair4.calenderevents.view.HelveticaButton
         android:id="@+id/btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
