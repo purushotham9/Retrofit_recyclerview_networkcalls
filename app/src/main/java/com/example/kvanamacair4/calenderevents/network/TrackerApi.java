@@ -24,6 +24,10 @@ public interface TrackerApi {
                        @Field("username") String username,
                        @Field("password") String password,
                        @Field("domain-name") String domain_name);
+
+    @GET("api/Users/Profile/moiz.scansoft@gmail.com")
+    Call<String> getImage(@Header("Authorization") String authorization, @Header("domain-name") String domain_name);
 }
+
 
 

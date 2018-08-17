@@ -37,4 +37,8 @@ public class RetrofitHandler {
                                  String domain_name) {
         return edunixApikeys.login(titles, grant_type, username, password, domain_name);
     }
+
+    public Call<String> getImage(String authorization, String domain_name) {
+        return edunixApikeys.getImage(authorization, domain_name);
+    }
 }
