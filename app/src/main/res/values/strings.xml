@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">CalenderEvents</string>
     <string name="retrofit">Retrofit-Recyclerview</string>
+    <string name="text">Satya</string>
+    <string name="movie">Githa</string>
 </resources>

@@ -8,6 +8,8 @@ import android.widget.Button;
 
 import com.example.kvanamacair4.calenderevents.R;
 
+import gr.net.maroulis.library.EasySplashScreen;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private Button mbtn;
 
@@ -17,6 +19,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         mbtn = findViewById(R.id.btn);
         mbtn.setOnClickListener(this);
+        View easySplashScreenView = new EasySplashScreen(MainActivity.this)
+                .withFullScreen()
+                .withTargetActivity(BranchActivity.class)
+                .withSplashTimeOut(4000)
+                .withBackgroundResource(android.R.color.holo_red_light)
+                .withHeaderText("Header")
+                .withFooterText("Copyright 2016")
+                .withBeforeLogoText("My cool company")
+                .withLogo(R.drawable.ic_launcher_background)
+                .withAfterLogoText("Some more details")
+                .create();
+        setContentView(easySplashScreenView);
     }
 
     @Override
