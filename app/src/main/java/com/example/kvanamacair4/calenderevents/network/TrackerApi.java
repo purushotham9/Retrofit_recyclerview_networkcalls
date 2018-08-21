@@ -18,7 +18,7 @@ public interface TrackerApi {
     //READ, CREATE, UPDATE, DELETE
 
     @FormUrlEncoded
-    @POST("edunix/TOKEN")
+    @POST("TOKEN")
     Call<String> login(@Field("Content-Type") String titles,
                        @Field("grant_type") String grant_type,
                        @Field("username") String username,

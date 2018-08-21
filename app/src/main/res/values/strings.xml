@@ -3,4 +3,8 @@
     <string name="retrofit">Retrofit-Recyclerview</string>
     <string name="text">Satya</string>
     <string name="movie">Githa</string>
+    <string name="username">User name</string>
+    <string name="password">Password</string>
+    <string name="domain_name">Domain name</string>
+    <string name="login">Login</string>
 </resources>

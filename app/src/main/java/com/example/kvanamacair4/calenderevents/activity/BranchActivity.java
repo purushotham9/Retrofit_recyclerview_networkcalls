@@ -19,6 +19,7 @@ import com.example.kvanamacair4.calenderevents.R;
 import com.example.kvanamacair4.calenderevents.adapter.RetrofitAdapter;
 import com.example.kvanamacair4.calenderevents.model.DataData;
 import com.example.kvanamacair4.calenderevents.network.RetrofitHandler;
+import com.example.kvanamacair4.calenderevents.singleton.SessionManager;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -90,13 +91,15 @@ public class BranchActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_service_testing_purpose:
-                RetrofitHandler.getInstance().calendar(bearer, domainName).enqueue(new Callback<String>() {
+//                RetrofitHandler.getInstance().calendar(bearer, domainName).enqueue(new Callback<String>() {
+                RetrofitHandler.getInstance().calendar(SessionManager.getInstance().getTokenType() + " " + SessionManager.getInstance().getAccessToken(), domainName).enqueue(new Callback<String>() {
                     @Override
                     public void onResponse(Call<String> call, Response<String> response) {
                         if (response.isSuccessful()) {
                             Log.d(TAG, "onResponse: " + response.body());
                             try {
                                 JSONArray jsonArray = new JSONArray(response.body());
+                                SessionManager.getInstance().storeHolidaysSession(response.body());
                                 for (int i = 0; i < jsonArray.length(); i++) {
                                     JSONObject jsonObject = jsonArray.getJSONObject(i);
                                     String holidayEvent = jsonObject.getString("holidayEventType");
@@ -120,23 +123,10 @@ public class BranchActivity extends AppCompatActivity implements View.OnClickLis
                 retrofitAdapter.notifyDataSetChanged();
                 break;
             case R.id.btn:
-                RetrofitHandler.getInstance().login("", "", "", "", "").enqueue(new Callback<String>() {
-                    @Override
-                    public void onResponse(Call<String> call, Response<String> response) {
-                        if (response.isSuccessful()) {
-                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                            startActivity(intent);
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<String> call, Throwable t) {
-                        Log.d(TAG, "onFailure:  " + t.getLocalizedMessage());
-                    }
-                });
+                // Damyyy
                 break;
             case R.id.get_image_btn:
-                RetrofitHandler.getInstance().getImage(bearer, domainName).enqueue(new Callback<String>() {
+                RetrofitHandler.getInstance().getImage(SessionManager.getInstance().getTokenType() + " " + SessionManager.getInstance().getAccessToken(), domainName).enqueue(new Callback<String>() {
                     @Override
                     public void onResponse(Call<String> call, Response<String> response) {
                         if (response.isSuccessful()) {

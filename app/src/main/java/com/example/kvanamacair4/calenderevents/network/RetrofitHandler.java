@@ -30,11 +30,7 @@ public class RetrofitHandler {
         return edunixApikeys.getCalender(authorization, domain_name);
     }
 
-    public Call<String> login(String titles,
-                                 String grant_type,
-                                 String username,
-                                 String password,
-                                 String domain_name) {
+    public Call<String> login(String titles, String grant_type, String username, String password, String domain_name) {
         return edunixApikeys.login(titles, grant_type, username, password, domain_name);
     }
 

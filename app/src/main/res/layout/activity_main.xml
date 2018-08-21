@@ -7,9 +7,30 @@
     android:orientation="vertical">
 
     <com.example.kvanamacair4.calenderevents.view.HelveticaEditTextView
-        android:id="@+id/et_testing"
+        android:id="@+id/et_user_name"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:hint="@string/username"/>
+
+    <com.example.kvanamacair4.calenderevents.view.HelveticaEditTextView
+        android:id="@+id/et_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/password"/>
+
+    <com.example.kvanamacair4.calenderevents.view.HelveticaEditTextView
+        android:id="@+id/et_domain_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/domain_name"/>
+
+    <com.example.kvanamacair4.calenderevents.view.HelveticaButton
+        android:id="@+id/btn_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/login" />
+
 
     <com.example.kvanamacair4.calenderevents.view.HelveticaButton
         android:id="@+id/btn"
@@ -18,37 +39,5 @@
         android:layout_gravity="center"
         android:text="@string/retrofit" />
 
-    <com.mreram.ticketview.TicketView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:tv_anchor1="@+id/cl_head"
-        app:tv_anchor2="@+id/cl_center"
-        app:tv_circleRadius="9dp"
-        app:tv_circleSpace="15dp"
-        app:tv_dashColor="@color/colorPrimary"
-        app:tv_dashSize="1.5dp">
-
-        <LinearLayout
-            android:id="@+id/ll"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/tv_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/text" />
-
-            <TextView
-                android:id="@+id/tv_movie"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/movie" />
-        </LinearLayout>
-    </com.mreram.ticketview.TicketView>
 
 </LinearLayout>
