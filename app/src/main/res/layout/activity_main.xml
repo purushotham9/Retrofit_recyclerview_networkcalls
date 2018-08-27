@@ -10,34 +10,32 @@
         android:id="@+id/et_user_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/username"/>
+        android:hint="@string/username" />
 
     <com.example.kvanamacair4.calenderevents.view.HelveticaEditTextView
         android:id="@+id/et_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/password"/>
+        android:hint="@string/password" />
 
     <com.example.kvanamacair4.calenderevents.view.HelveticaEditTextView
         android:id="@+id/et_domain_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/domain_name"/>
+        android:hint="@string/domain_name" />
 
     <com.example.kvanamacair4.calenderevents.view.HelveticaButton
         android:id="@+id/btn_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="@string/login" />
-
+        android:text="@string/retrofit_login" />
 
     <com.example.kvanamacair4.calenderevents.view.HelveticaButton
         android:id="@+id/btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="@string/retrofit" />
-
+        android:text="@string/asynctask_login" />
 
 </LinearLayout>
